@@ -15,6 +15,7 @@ const createBooking = async (req, res) => {
             message: 'All fields are required',
         });
     }
+    if(customerList.length < 1) return res.status(400).json({ success: false, message: 'Customer list must be filled out' });
     try {
         let customerListId = [];
         for (let i = 0; i < customerList.length; i++) {

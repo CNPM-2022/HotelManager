@@ -10,7 +10,7 @@ const User = require('../models/User');
 const LoginController = async (req, res) => {
     const { username, password } = req.body;
     if (!username || !password)
-        return res.status(400).json({ success: false, message: 'Missing username and/or password' });
+        return res.status(400).json({ success: false, message: 'Please fill out username or password' });
 
     try {
         // Check for existing user
