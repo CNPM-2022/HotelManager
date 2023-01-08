@@ -12,8 +12,9 @@ const RegisterController = async (req, res) => {
     console.log(req.body);
     // Simple validation
     if (!username || !password || !email || !Name || !phoneNumber) {
-        return res.status(400).json({ success: false, message: 'Missing username,email,Name and/or password' });
+        return res.status(400).json({ success: false, message: 'Username,email,Name and/or password must be filled out' });
     }
+    if(password.length < 6) return res.status(400).json({ success: false, message: 'Password must be at least 6 characters' });
 
     try {
         // Check for existing user
@@ -36,7 +37,6 @@ const RegisterController = async (req, res) => {
             user: newUser,
         });
     } catch (error) {
-        console.log(error);
         res.status(500).json({ success: false, message: 'Internal server error' });
     }
 };
