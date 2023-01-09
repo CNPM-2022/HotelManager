@@ -15,10 +15,6 @@ const RegisterController = async (req, res) => {
         return res.status(400).json({ success: false, message: 'Username,email,Name and/or password must be filled out' });
     }
 
-    if(username.length < 3) return res.status(400).json({ success: false, message: 'Username must be at least 3 characters' });
-
-    if(password.length < 6) return res.status(400).json({ success: false, message: 'Password must be at least 6 characters' });
-
     try {
         // Check for existing user
         const user = await User.findOne({ username });
