@@ -4,7 +4,7 @@ const quiDinhSchema = mongoose.Schema({
     heSo: {
         type: Number,
         required: true,
-        default: 1.25,
+        default: 1.5,
     },
     phuThu: {
         type: Number,

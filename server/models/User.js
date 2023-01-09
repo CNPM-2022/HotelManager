@@ -29,7 +29,7 @@ const UserSchema = new Schema(
         },
         CMND: {
             type: String,
-            unique: true,
+            default: '',
         },
         address: {
             type: String,
